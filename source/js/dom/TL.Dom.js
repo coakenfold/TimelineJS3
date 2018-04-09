@@ -65,6 +65,19 @@ TL.Dom = {
 	    return pos;
 	},
 
+	setAttr: function(el, attributes){
+
+		var attr, index;
+		if (attributes !== undefined) {
+			for (index = 0; index < attributes.length; index++) {
+				attr = attributes[index];
+				if (attr.length === 2) {
+					el.setAttribute(attr[0],attr[1]);	
+				}
+			}
+		}	
+	},
+
 	testProp: function(props) {
 		var style = document.documentElement.style;
 
