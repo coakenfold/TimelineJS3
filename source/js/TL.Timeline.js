@@ -687,11 +687,11 @@ TL.Timeline = TL.Class.extend({
 
 		// Create Layout
 		if (this.options.timenav_position == "top") {
-			this._el.timenav		= TL.Dom.create('div', 'tl-timenav', this._el.container);
+			this._el.timenav		= TL.Dom.create('nav', 'tl-timenav', this._el.container);
 			this._el.storyslider	= TL.Dom.create('div', 'tl-storyslider', this._el.container);
 		} else {
 			this._el.storyslider  	= TL.Dom.create('div', 'tl-storyslider', this._el.container);
-			this._el.timenav		= TL.Dom.create('div', 'tl-timenav', this._el.container);
+			this._el.timenav		= TL.Dom.create('nav', 'tl-timenav', this._el.container);
 		}
 		// ARIA: ROLE > NAVIGATION
 		TL.Dom.setAttr(this._el.timenav, [['role','navigation']]);
