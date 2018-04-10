@@ -242,7 +242,7 @@ TL.TimeMarker = TL.Class.extend({
 
 		this._el.timespan				= TL.Dom.create("div", "tl-timemarker-timespan", this._el.container);
 		this._el.timespan_content		= TL.Dom.create("div", "tl-timemarker-timespan-content", this._el.timespan);
-		this._el.content_container		= TL.Dom.create("div", "tl-timemarker-content-container", this._el.container);
+		this._el.content_container		= TL.Dom.create("button", "tl-timemarker-content-container", this._el.container);
 
 		this._el.content				= TL.Dom.create("div", "tl-timemarker-content", this._el.content_container);
 
