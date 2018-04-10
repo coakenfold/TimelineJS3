@@ -182,7 +182,8 @@ TL.Slide = TL.Class.extend({
 	================================================== */
 	_initLayout: function () {
 		// Create Layout
-		this._el.container 				= TL.Dom.create("div", "tl-slide");
+		this._el.container 				= TL.Dom.create("article", "tl-slide");
+		TL.Dom.setAttr(this._el.container, [["role","article"]]);
 
 		if (this.has.title) {
 			this._el.container.className = "tl-slide tl-slide-titleslide";
