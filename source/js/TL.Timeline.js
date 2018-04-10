@@ -694,7 +694,7 @@ TL.Timeline = TL.Class.extend({
 			this._el.timenav		= TL.Dom.create('nav', 'tl-timenav', this._el.container);
 		}
 		// ARIA: ROLE > NAVIGATION
-		TL.Dom.setAttr(this._el.timenav, [['role','navigation']]);
+		TL.Dom.setAttr(this._el.timenav, [["role","navigation"]]);
 
 		this._el.menubar			= TL.Dom.create('div', 'tl-menubar', this._el.container);
 
