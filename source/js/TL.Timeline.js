@@ -232,6 +232,8 @@ TL.Timeline = TL.Class.extend({
 			TL.DomUtil.addClass(this._el.container, 'tl-timeline-full-embed');
 		}
 
+		TL.keydown = {};
+
 		document.addEventListener("keydown", function(event) {
 			var keyName = event.key;
 			var currentSlide = self._getSlideIndex(self.current_id);
@@ -239,6 +241,23 @@ TL.Timeline = TL.Class.extend({
 			var lastSlide = self.config.title ? _n + 1 : _n;
 			var firstSlide = 0;
 
+			if (keyName == "Tab"){
+				TL.keydown[keyName] = true;
+				console.log("chad", keyName, "TRUE");
+				if (TL.keydown.Shift == true) {
+					if (currentSlide!=firstSlide){
+						self.goToPrev();
+					}
+				} else {
+					if (currentSlide!=lastSlide){
+						self.goToNext();
+					}
+				}
+			}
+			if (keyName == "Shift"){
+				TL.keydown[keyName] = true;
+				console.log("chad", keyName, "TRUE");
+			}
 			if (keyName == 'ArrowLeft'){
 				if (currentSlide!=firstSlide){
 					self.goToPrev();
@@ -248,6 +267,15 @@ TL.Timeline = TL.Class.extend({
 				if (currentSlide!=lastSlide){
 					self.goToNext();
 				}
+			}
+		});
+
+		document.addEventListener("keyup", function(event) {
+			var keyName = event.key;
+
+			if (keyName == "Tab" || keyName == "Shift") {
+				console.log("chad", keyName, "FALSE");
+				TL.keydown[keyName] = false;
 			}
 		});
 
