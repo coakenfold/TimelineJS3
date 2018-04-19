@@ -656,7 +656,6 @@ TL.TimeNav = TL.Class.extend({
 	================================================== */
 	_initLayout: function () {
 		// Create Layout
-		this._el.attribution 				= TL.Dom.create('div', 'tl-attribution', this._el.container);
 		this._el.line						= TL.Dom.create('div', 'tl-timenav-line', this._el.container);
 		this._el.slider						= TL.Dom.create('div', 'tl-timenav-slider', this._el.container);
 		this._el.slider_background			= TL.Dom.create('div', 'tl-timenav-slider-background', this._el.slider);
@@ -666,9 +665,11 @@ TL.TimeNav = TL.Class.extend({
 		this._el.timeaxis 					= TL.Dom.create('div', 'tl-timeaxis', this._el.slider);
 		this._el.timeaxis_background 		= TL.Dom.create('div', 'tl-timeaxis-background', this._el.container);
 
-
 		// Knight Lab Logo
-		this._el.attribution.innerHTML = "<a href='http://timeline.knightlab.com' target='_blank'><span class='tl-knightlab-logo'></span>Timeline JS</a>"
+		if (this.options.hide_attribution !== true) {
+			this._el.attribution 				= TL.Dom.create('div', 'tl-attribution', this._el.container);
+			this._el.attribution.innerHTML = "<a href='http://timeline.knightlab.com' target='_blank'><span class='tl-knightlab-logo'></span>Timeline JS</a>"	
+		}
 
 		// Time Axis
 		this.timeaxis = new TL.TimeAxis(this._el.timeaxis, this.options);
