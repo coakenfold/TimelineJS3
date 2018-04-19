@@ -239,6 +239,12 @@ TL.Timeline = TL.Class.extend({
 			var lastSlide = self.config.title ? _n + 1 : _n;
 			var firstSlide = 0;
 
+			if (keyName == "End"){
+				self.goToEnd();	
+			}
+			if (keyName == "Home"){
+				self.goToStart();
+			}
 			if (keyName == 'ArrowLeft'){
 				if (currentSlide!=firstSlide){
 					self.goToPrev();
@@ -687,12 +693,14 @@ TL.Timeline = TL.Class.extend({
 
 		// Create Layout
 		if (this.options.timenav_position == "top") {
-			this._el.timenav		= TL.Dom.create('div', 'tl-timenav', this._el.container);
+			this._el.timenav		= TL.Dom.create('nav', 'tl-timenav', this._el.container);
 			this._el.storyslider	= TL.Dom.create('div', 'tl-storyslider', this._el.container);
 		} else {
 			this._el.storyslider  	= TL.Dom.create('div', 'tl-storyslider', this._el.container);
-			this._el.timenav		= TL.Dom.create('div', 'tl-timenav', this._el.container);
+			this._el.timenav		= TL.Dom.create('nav', 'tl-timenav', this._el.container);
 		}
+		// ARIA: ROLE > NAVIGATION
+		TL.Dom.setAttr(this._el.timenav, [["role","navigation"]]);
 
 		this._el.menubar			= TL.Dom.create('div', 'tl-menubar', this._el.container);
 
